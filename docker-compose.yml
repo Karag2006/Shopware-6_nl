@@ -7,7 +7,7 @@ services:
       image: dockware/dev:latest
       container_name: shopware
       ports:
-         - "80:80"
+         - "3002:80"
          - "3306:3306"
          - "22:22"
          - "8888:8888"
