@@ -13,7 +13,6 @@ services:
          - "8888:8888"
          - "9999:9999"
       volumes:
-         - "db:/var/lib/mysql"
          - "./src:/var/www/html/"
       networks:
          - web
@@ -22,10 +21,6 @@ services:
          - XDEBUG_ENABLED=1
          # default = latest PHP, optional = specific version
          - PHP_VERSION=8.2
-
-volumes:
-  db:
-    driver: local
 
 networks:
   web:
