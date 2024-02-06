@@ -5,7 +5,7 @@ services:
     shopware:
       # use either tag "latest" or any other version like "6.5.3.0", ...
       image: dockware/dev:latest
-      container_name: shopware
+      container_name: tp24-nl
       ports:
          - "3002:80"
          - "3306:3306"
@@ -13,20 +13,18 @@ services:
          - "8888:8888"
          - "9999:9999"
       volumes:
-         - "db_volume:/var/lib/mysql"
-         - "shop_volume:/var/www/html"
+         - "db:/var/lib/mysql"
+         - "./src:/var/www/html/"
       networks:
          - web
       environment:
          # default = 0, recommended to be OFF for frontend devs
          - XDEBUG_ENABLED=1
          # default = latest PHP, optional = specific version
-         - PHP_VERSION=8.1
+         - PHP_VERSION=8.2
 
 volumes:
-  db_volume:
-    driver: local
-  shop_volume:
+  db:
     driver: local
 
 networks:
